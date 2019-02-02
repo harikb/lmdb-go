@@ -143,7 +143,7 @@ type Env struct {
 func NewEnv(env *lmdb.Env, h ...Handler) (*Env, error) {
 	var err error
 	if env == nil {
-		env, err = lmdb.NewEnv()
+		env, err = lmdb.NewEnv(false)
 		if err != nil {
 			return nil, err
 		}

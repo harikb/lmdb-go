@@ -149,7 +149,7 @@ func TestNewEnv_arg(t *testing.T) {
 	}
 	defer os.RemoveAll(dir)
 
-	_env, err := lmdb.NewEnv()
+	_env, err := lmdb.NewEnv(false)
 	if err != nil {
 		t.Error(err)
 		return
@@ -191,7 +191,7 @@ func TestNewEnv_noLock_arg(t *testing.T) {
 	}
 	defer os.RemoveAll(dir)
 
-	_env, err := lmdb.NewEnv()
+	_env, err := lmdb.NewEnv(false)
 	if err != nil {
 		t.Error(err)
 		return

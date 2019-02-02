@@ -74,7 +74,7 @@ type Options struct {
 }
 
 func readIn(path string, r io.Reader, opt *Options) error {
-	_env, err := lmdb.NewEnv()
+	_env, err := lmdb.NewEnv(false)
 	if err != nil {
 		return err
 	}
@@ -164,7 +164,7 @@ type catOptions struct {
 }
 
 func cat(path string, opt *catOptions) error {
-	env, err := lmdb.NewEnv()
+	env, err := lmdb.NewEnv(false)
 	if err != nil {
 		return err
 	}

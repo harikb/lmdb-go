@@ -47,7 +47,7 @@ type Options struct {
 }
 
 func copyEnv(srcpath, dstpath string, opt *Options) error {
-	env, err := lmdb.NewEnv()
+	env, err := lmdb.NewEnv(false)
 	if err != nil {
 		return err
 	}

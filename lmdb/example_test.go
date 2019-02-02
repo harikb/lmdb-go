@@ -37,7 +37,7 @@ func doView(txn *lmdb.Txn) error    { return nil }
 // begin.
 func Example() {
 	// Create an environment and make sure it is eventually closed.
-	env, err := lmdb.NewEnv()
+	env, err := lmdb.NewEnv(false)
 	if err != nil {
 		// ...
 	}
@@ -172,7 +172,7 @@ func Example_worker() {
 // after calling Env.Open() must take special care to synchronize with other
 // goroutines.
 func ExampleEnv_SetMapSize() {
-	env, err := lmdb.NewEnv()
+	env, err := lmdb.NewEnv(false)
 	if err != nil {
 		// ...
 	}
@@ -316,7 +316,7 @@ func ExampleEnv_UpdateLocked() {
 func ExampleEnv() {
 	// open the LMDB environment and configure common options like its size and
 	// maximum number of databases.
-	env, err := lmdb.NewEnv()
+	env, err := lmdb.NewEnv(false)
 	if err != nil {
 		// ...
 	}

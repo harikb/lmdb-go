@@ -41,7 +41,7 @@ func NewEnv(opt *EnvOptions) (env *lmdb.Env, err error) {
 	if err != nil {
 		return nil, err
 	}
-	env, err = lmdb.NewEnv()
+	env, err = lmdb.NewEnv(false)
 	if err != nil {
 		return nil, err
 	}
