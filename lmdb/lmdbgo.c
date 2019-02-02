@@ -1,5 +1,5 @@
 /* lmdbgo.c
- * Helper utilities for github.com/bmatsuo/lmdb-go/lmdb
+ * Helper utilities for github.com/harikb/lmdb-go/lmdb
  * */
 #include "lmdb.h"
 #include "lmdbgo.h"
