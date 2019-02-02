@@ -1,4 +1,4 @@
-# Temporary fork of [github.com/bmatsuo/lmdb-go](github.com/bmatsuo/lmdb-go) + [github.com/kellabyte/rewind](github.com/kellabyte/rewind)
+# Temporary fork of [github.com/bmatsuo/lmdb-go](https://github.com/bmatsuo/lmdb-go) + [github.com/kellabyte/rewind](https://github.com/kellabyte/rewind)
 
 #lmdb-go [![releases/v1.8.0](https://img.shields.io/badge/release-v1.8.0-375eab.svg)](releases) [![C/v0.9.19](https://img.shields.io/badge/C-v0.9.19-555555.svg)](https://github.com/LMDB/lmdb/blob/mdb.RE/0.9/libraries/liblmdb/CHANGES) [![Build Status](https://travis-ci.org/harikb/lmdb-go.svg?branch=master)](https://travis-ci.org/harikb/lmdb-go)
 
