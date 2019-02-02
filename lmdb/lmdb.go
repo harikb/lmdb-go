@@ -135,6 +135,7 @@ package lmdb
 #cgo linux,pwritev CFLAGS: -DMDB_USE_PWRITEV
 
 #include "lmdb.h"
+#include "rewind.h"
 */
 import "C"
 
