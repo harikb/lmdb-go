@@ -2,7 +2,7 @@
 
 The lmdb-go is grateful for any outside contributions.  The simplest way to
 contribute is to comment on [open
-issues](https://github.com/bmatsuo/lmdb-go/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+issues](https://github.com/harikb/lmdb-go/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
 that are important to you.  This is a critical component in ensuring that
 lmdb-go evolves in ways that are best for everyone.
 
@@ -14,7 +14,7 @@ open issues and add relevant new input there if necessary.
 
 If there is a problem with lmdb-go that is not being addressed in an open issue
 then a new issue should be
-[opened](https://github.com/bmatsuo/lmdb-go/issues/new).  All users are
+[opened](https://github.com/harikb/lmdb-go/issues/new).  All users are
 encouraged to file issues when they encounter behavior that is incorrect or
 inconsistent.  Proposals for new or expanded features/behavior are also welcome
 and will be considered. But such proposals must adequately describe the problem

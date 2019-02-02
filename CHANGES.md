@@ -14,7 +14,7 @@
   sync.Pool easier (#104/#105)
 
 ```
-go get github.com/bmatsuo/lmdb-go/exp/lmdbpool
+go get github.com/harikb/lmdb-go/exp/lmdbpool
 ```
 
 - Silence aggressive struct initializer warning from clang (#107)

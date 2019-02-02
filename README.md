@@ -1,6 +1,6 @@
-# Temporary fork of github.com/bmatsuo/lmdb-go + github.com/kellabyte/rewind
+# Temporary fork of [github.com/bmatsuo/lmdb-go](github.com/bmatsuo/lmdb-go) + [github.com/kellabyte/rewind](github.com/kellabyte/rewind)
 
-#lmdb-go [![releases/v1.8.0](https://img.shields.io/badge/release-v1.8.0-375eab.svg)](releases) [![C/v0.9.19](https://img.shields.io/badge/C-v0.9.19-555555.svg)](https://github.com/LMDB/lmdb/blob/mdb.RE/0.9/libraries/liblmdb/CHANGES) [![Build Status](https://travis-ci.org/bmatsuo/lmdb-go.svg?branch=master)](https://travis-ci.org/bmatsuo/lmdb-go)
+#lmdb-go [![releases/v1.8.0](https://img.shields.io/badge/release-v1.8.0-375eab.svg)](releases) [![C/v0.9.19](https://img.shields.io/badge/C-v0.9.19-555555.svg)](https://github.com/LMDB/lmdb/blob/mdb.RE/0.9/libraries/liblmdb/CHANGES) [![Build Status](https://travis-ci.org/harikb/lmdb-go.svg?branch=master)](https://travis-ci.org/harikb/lmdb-go)
 
 Go bindings to the OpenLDAP Lightning Memory-Mapped Database (LMDB).
 
@@ -16,29 +16,29 @@ and pinned by tag/commit.
 
 Developers concerned with package stability should consult the documentation.
 
-####lmdb [![GoDoc](https://godoc.org/github.com/bmatsuo/lmdb-go/lmdb?status.svg)](https://godoc.org/github.com/bmatsuo/lmdb-go/lmdb) [![stable](https://img.shields.io/badge/stability-stable-brightgreen.svg)](#user-content-versioning-and-stability)
+####lmdb [![GoDoc](https://godoc.org/github.com/harikb/lmdb-go/lmdb?status.svg)](https://godoc.org/github.com/harikb/lmdb-go/lmdb) [![stable](https://img.shields.io/badge/stability-stable-brightgreen.svg)](#user-content-versioning-and-stability)
 
 ```go
-import "github.com/bmatsuo/lmdb-go/lmdb"
+import "github.com/harikb/lmdb-go/lmdb"
 ```
 
 Core bindings allowing low-level access to LMDB.
 
-####lmdbscan [![GoDoc](https://godoc.org/github.com/bmatsuo/lmdb-go/lmdbscan?status.svg)](https://godoc.org/github.com/bmatsuo/lmdb-go/lmdbscan) [![stable](https://img.shields.io/badge/stability-stable-brightgreen.svg)](#user-content-versioning-and-stability)
+####lmdbscan [![GoDoc](https://godoc.org/github.com/harikb/lmdb-go/lmdbscan?status.svg)](https://godoc.org/github.com/harikb/lmdb-go/lmdbscan) [![stable](https://img.shields.io/badge/stability-stable-brightgreen.svg)](#user-content-versioning-and-stability)
 
 ```go
-import "github.com/bmatsuo/lmdb-go/lmdbscan"
+import "github.com/harikb/lmdb-go/lmdbscan"
 ```
 
 A utility package for scanning database ranges. The API is inspired by
 [bufio.Scanner](https://godoc.org/bufio#Scanner) and the python cursor
 [implementation](https://lmdb.readthedocs.org/en/release/#cursor-class).
 
-####exp/lmdbpool [![GoDoc](https://godoc.org/github.com/bmatsuo/lmdb-go/exp/lmdbpool?status.svg)](https://godoc.org/github.com/bmatsuo/lmdb-go/exp/lmdbpool) [![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](#user-content-versioning-and-stability)
+####exp/lmdbpool [![GoDoc](https://godoc.org/github.com/harikb/lmdb-go/exp/lmdbpool?status.svg)](https://godoc.org/github.com/harikb/lmdb-go/exp/lmdbpool) [![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](#user-content-versioning-and-stability)
 
 
 ```go
-import "github.com/bmatsuo/lmdb-go/exp/lmdbpool"
+import "github.com/harikb/lmdb-go/exp/lmdbpool"
 ```
 
 A utility package which facilitates reuse of lmdb.Txn objects using a
@@ -53,11 +53,11 @@ through use by real applications it can be integrated directly into the lmdb
 package for more transparent integration.  Please test this package and provide
 feedback to speed this process up.
 
-####exp/lmdbsync [![GoDoc](https://godoc.org/github.com/bmatsuo/lmdb-go/exp/lmdbsync?status.svg)](https://godoc.org/github.com/bmatsuo/lmdb-go/exp/lmdbsync) [![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](#user-content-versioning-and-stability)
+####exp/lmdbsync [![GoDoc](https://godoc.org/github.com/harikb/lmdb-go/exp/lmdbsync?status.svg)](https://godoc.org/github.com/harikb/lmdb-go/exp/lmdbsync) [![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](#user-content-versioning-and-stability)
 
 
 ```go
-import "github.com/bmatsuo/lmdb-go/exp/lmdbsync"
+import "github.com/harikb/lmdb-go/exp/lmdbsync"
 ```
 
 An experimental utility package that provides synchronization necessary to
@@ -83,14 +83,14 @@ database interactions without compromising the flexibility of the C API.
 possible there are compromises, gotchas, and caveats that application
 developers must be aware of when relying on LMDB to store their data.  All
 users are encouraged to fully read the
-[documentation](https://godoc.org/github.com/bmatsuo/lmdb-go/lmdb) so they are
+[documentation](https://godoc.org/github.com/harikb/lmdb-go/lmdb) so they are
 aware of these caveats.
 
 Where the lmdb package and its implementation decisions do not meet the needs
 of application developers in terms of safety or operational use the lmdbsync
 package has been designed to wrap lmdb and safely fill in additional
 functionality.  Consult the
-[documentation](https://godoc.org/github.com/bmatsuo/lmdb-go/exp/lmdbsync) for
+[documentation](https://godoc.org/github.com/harikb/lmdb-go/exp/lmdbsync) for
 more information about the lmdbsync package.
 
 ###API coverage
@@ -106,7 +106,7 @@ reason).  Some notable features and optimizations that are supported:
   `[]byte`.
 
 For tracking purposes a list of unsupported features is kept in an
-[issue](https://github.com/bmatsuo/lmdb-go/issues/1).
+[issue](https://github.com/harikb/lmdb-go/issues/1).
 
 ###Zero-copy reads
 
@@ -128,7 +128,7 @@ err := lmdb.View(func(txn *lmdb.Txn) error {
 ###Documentation
 
 Comprehensive documentation and examples are provided to demonstrate safe usage
-of lmdb.  In addition to [godoc](https://godoc.org/github.com/bmatsuo/lmdb-go)
+of lmdb.  In addition to [godoc](https://godoc.org/github.com/harikb/lmdb-go)
 documentation, implementations of the standand LMDB commands (`mdb_stat`, etc)
 can be found in the [cmd/](cmd/) directory and some simple experimental
 commands can be found in the [exp/cmd/](exp/cmd) directory.  Aside from
@@ -157,7 +157,7 @@ questions of why to use one database or the other.
 - Its simpler design and implementation in pure Go mean it is free of many
   caveats and gotchas which are present using the lmdb package.  For more
   information about caveats with the lmdb package, consult its
-  [documentation](https://godoc.org/github.com/bmatsuo/lmdb-go/lmdb).
+  [documentation](https://godoc.org/github.com/harikb/lmdb-go/lmdb).
 
 ###Advantages of LMDB
 
@@ -189,7 +189,7 @@ questions of why to use one database or the other.
 There is no dependency on shared libraries.  So most users can simply install
 using `go get`.
 
-`go get github.com/bmatsuo/lmdb-go/lmdb`
+`go get github.com/harikb/lmdb-go/lmdb`
 
 On FreeBSD 10, you must explicitly set `CC` (otherwise it will fail with a
 cryptic error), for example:
@@ -215,7 +215,7 @@ to enable the optimisation.
 ###Go doc
 
 The `go doc` documentation available on
-[godoc.org](https://godoc.org/github.com/bmatsuo/lmdb-go) is the primary source
+[godoc.org](https://godoc.org/github.com/harikb/lmdb-go) is the primary source
 of developer documentation for lmdb-go.  It provides an overview of the API
 with a lot of usage examples.  Where necessary the documentation points out
 differences between the semantics of methods and their C counterparts.
