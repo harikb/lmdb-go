@@ -4,12 +4,14 @@ package lmdb
 #include <stdlib.h>
 #include <stdio.h>
 #include "lmdb.h"
+#include "rewind.h"
 #include "lmdbgo.h"
 */
 import "C"
 
 import (
 	"errors"
+	"log"
 	"os"
 	"runtime"
 	"sync"
@@ -68,16 +70,24 @@ type Env struct {
 	// been closed, so that it may know if it must abort.
 	closeLock sync.RWMutex
 
-	ckey *C.MDB_val
-	cval *C.MDB_val
+	ckey   *C.MDB_val
+	cval   *C.MDB_val
+	rewind bool
 }
 
 // NewEnv allocates and initializes a new Env.
 //
 // See mdb_env_create.
-func NewEnv() (*Env, error) {
+func NewEnv(rewind bool) (*Env, error) {
 	env := new(Env)
-	ret := C.mdb_env_create(&env._env)
+	env.rewind = rewind
+	var ret C.int
+	if env.rewind {
+		log.Printf("REWIND ENABLED")
+		ret = C.rew_env_create(&env._env)
+	} else {
+		ret = C.mdb_env_create(&env._env)
+	}
 	if ret != success {
 		return nil, operrno("mdb_env_create", ret)
 	}
@@ -95,7 +105,12 @@ func NewEnv() (*Env, error) {
 func (env *Env) Open(path string, flags uint, mode os.FileMode) error {
 	cpath := C.CString(path)
 	defer C.free(unsafe.Pointer(cpath))
-	ret := C.mdb_env_open(env._env, cpath, C.uint(NoTLS|flags), C.mdb_mode_t(mode))
+	var ret C.int
+	if env.rewind {
+		ret = C.re_env_open(env._env, cpath, C.uint(NoTLS|flags), C.mdb_mode_t(mode))
+	} else {
+		ret = C.mdb_env_open(env._env, cpath, C.uint(NoTLS|flags), C.mdb_mode_t(mode))
+	}
 	return operrno("mdb_env_open", ret)
 }
 
@@ -168,7 +183,11 @@ func (env *Env) close() bool {
 	}
 
 	env.closeLock.Lock()
-	C.mdb_env_close(env._env)
+	if env.rewind {
+		C.re_env_close(env._env)
+	} else {
+		C.mdb_env_close(env._env)
+	}
 	env._env = nil
 	env.closeLock.Unlock()
 

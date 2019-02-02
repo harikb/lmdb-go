@@ -4,6 +4,7 @@ package lmdb
 #include <stdlib.h>
 #include <stdio.h>
 #include "lmdb.h"
+#include "rewind.h"
 #include "lmdbgo.h"
 */
 import "C"
@@ -96,7 +97,12 @@ func beginTxn(env *Env, parent *Txn, flags uint) (*Txn, error) {
 		txn.key = parent.key
 		txn.val = parent.val
 	}
-	ret := C.mdb_txn_begin(env._env, ptxn, C.uint(flags), &txn._txn)
+	var ret C.int
+	if env.rewind {
+		ret = C.re_txn_begin(env._env, ptxn, C.uint(flags), &txn._txn)
+	} else {
+		ret = C.mdb_txn_begin(env._env, ptxn, C.uint(flags), &txn._txn)
+	}
 	if ret != success {
 		return nil, operrno("mdb_txn_begin", ret)
 	}
@@ -190,7 +196,12 @@ func (txn *Txn) Commit() error {
 }
 
 func (txn *Txn) commit() error {
-	ret := C.mdb_txn_commit(txn._txn)
+	var ret C.int
+	if txn.env.rewind {
+		ret = C.re_txn_commit(txn._txn)
+	} else {
+		ret = C.mdb_txn_commit(txn._txn)
+	}
 	txn.clearTxn()
 	return operrno("mdb_txn_commit", ret)
 }
